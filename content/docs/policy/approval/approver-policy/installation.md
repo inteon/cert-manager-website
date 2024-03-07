@@ -59,7 +59,12 @@ To install approver-policy:
 
 ```terminal
 helm repo add jetstack https://charts.jetstack.io --force-update
-helm upgrade -i -n cert-manager cert-manager-approver-policy jetstack/cert-manager-approver-policy --wait
+
+helm upgrade cert-manager-approver-policy jetstack/cert-manager-approver-policy \
+  --install \
+  --namespace cert-manager \
+  --version [[VAR::approver_policy_latest_version]] \
+  --wait
 ```
 
 If you are using approver-policy with [external
@@ -73,7 +78,11 @@ For example, if using approver-policy for the internal issuer types, along with
 set the following values when installing:
 
 ```terminal
-$ helm upgrade -i -n cert-manager cert-manager-approver-policy jetstack/cert-manager-approver-policy --wait \
+helm upgrade cert-manager-approver-policy jetstack/cert-manager-approver-policy \
+  --install \
+  --namespace cert-manager \
+  --version [[VAR::approver_policy_latest_version]] \
+  --wait \
   --set app.approveSignerNames="{\
 issuers.cert-manager.io/*,clusterissuers.cert-manager.io/*,\
 googlecasclusterissuers.cas-issuer.jetstack.io/*,googlecasissuers.cas-issuer.jetstack.io/*,\
