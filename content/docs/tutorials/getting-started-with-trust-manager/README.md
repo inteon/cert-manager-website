@@ -327,8 +327,7 @@ cluster.
 1. Continuing with the reloader, it can be installed with helm:
 
     ```shell
-    helm repo add stakater https://stakater.github.io/stakater-charts
-    helm repo update
+    helm repo add stakater https://stakater.github.io/stakater-charts --force-update
     helm install reloader stakater/reloader -n stakater-reloader --create-namespace --set fullnameOverride=reloader
     ```
 
@@ -501,8 +500,7 @@ designed to enforce the CA bundle being mounted on all pods from the
 1. Install Gatekeeper onto your cluster:
 
     ```shell
-    helm repo add gatekeeper https://open-policy-agent.github.io/gatekeeper/charts
-    helm repo update
+    helm repo add gatekeeper https://open-policy-agent.github.io/gatekeeper/charts --force-update
     helm install gatekeeper/gatekeeper --name-template=gatekeeper --namespace gatekeeper-system --create-namespace --version v3.11.0
     ```
 

@@ -152,8 +152,8 @@ Now you can install and configure cert-manager.
 Install cert-manager using `helm` as follows:
 
 ```bash
-helm repo add jetstack https://charts.jetstack.io
-helm repo update
+helm repo add jetstack https://charts.jetstack.io --force-update
+
 helm upgrade cert-manager jetstack/cert-manager \
     --install \
     --create-namespace \

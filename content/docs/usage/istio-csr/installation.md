@@ -31,8 +31,7 @@ We install cert-manager [using helm](https://cert-manager.io/docs/installation/h
 kind create cluster --image=docker.io/kindest/node:v1.22.4
 
 # Helm setup
-helm repo add jetstack https://charts.jetstack.io
-helm repo update
+helm repo add jetstack https://charts.jetstack.io --force-update
 
 # install cert-manager CRDs
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/[[VAR::cert_manager_latest_version]]/cert-manager.crds.yaml
@@ -83,8 +82,7 @@ istio-csr is best installed via Helm, and it should be simple and quick to insta
 are a bunch of other configuration options for the helm chart, which you can check out [here](../../usage/istio-csr/README.md).
 
 ```console
-helm repo add jetstack https://charts.jetstack.io
-helm repo update
+helm repo add jetstack https://charts.jetstack.io --force-update
 
 # We set a few helm template values so we can point at our static root CA
 helm install -n cert-manager cert-manager-istio-csr jetstack/cert-manager-istio-csr \

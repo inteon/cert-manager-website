@@ -38,8 +38,7 @@ install.
 Add the Jetstack Helm repository (if you haven't already) and update it.
 
 ```bash
-helm repo add jetstack https://charts.jetstack.io
-helm repo update jetstack
+helm repo add jetstack https://charts.jetstack.io --force-update
 ```
 
 The helm upgrade command will upgrade cert-manager to the specified or latest version of cert-manager, as listed on the
